@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan Your Journey | ClimaQuest</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Styles/ExploreWeather.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="pics/Logo.jpg" class="img" alt="ClimaQuest Logo" />
+          <h1>ClimaQuest</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="WeatherSience.html">Weather Science</a></li>
+            <li><a href="TeachYourChild.html">Teach Your Child</a></li>
+            <li><a href="MyWeather.html">My Weather</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="page-header">
+        <h1>Plan Your Journey</h1>
+        <p class="subtitle">
+          Select your location on the map and get a detailed weather forecast
+        </p>
+      </div>
+
+      <div class="panel">
+        <h2>Interactive Map</h2>
+        <div id="map"></div>
+        <p class="map-instructions">
+          * Click on the map to locate your location or enter the country name *
+        </p>
+
+        <div class="location-info">
+          <h3>Location</h3>
+          <div id="selected-location">Location not yet determined</div>
+          <input
+            type="text"
+            id="placeInput"
+            placeholder="Enter your destination"
+            required
+          />
+          <div class="coordinates">
+            <div class="coordinate-item">
+              <div class="coordinate-label">Latitude</div>
+              <div class="coordinate-value" id="lat">--</div>
+            </div>
+            <div class="coordinate-item">
+              <div class="coordinate-label">Longitude</div>
+              <div class="coordinate-value" id="lon">--</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" required />
+        </div>
+
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input type="date" id="endDate" required />
+        </div>
+
+        <div class="form-group">
+          <label for="Trip-type">Trip type</label>
+          <select id="type" name="Trip">
+            <option value="" selected disabled hidden>
+              -- Select a Trip --
+            </option>
+            <option value="business">Business</option>
+            <option value="vacation">Vacation</option>
+            <option value="adventure">Adventure</option>
+            <option value="relaxation">Relaxation</option>
+          </select>
+        </div>
+
+        <button id="search-button">Get Forecasts</button>
+      </div>
+
+      <div class="panel result panel2">
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>Analyzing data and generating forecasts...</p>
+        </div>
+
+        <section class="results-section" id="results">
+          <h2>Results</h2>
+          <div class="weather-card">
+            <div class="condition-item">
+              <div class="condition-name">Very Hot</div>
+              <div class="probability-bar">
+                <div
+                  class="probability-fill hot"
+                  id="hot-probability"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="probability-text" id="hot-text">0%</div>
+            </div>
+            <div class="condition-item">
+              <div class="condition-name">Very Cold</div>
+              <div class="probability-bar">
+                <div
+                  class="probability-fill cold"
+                  id="cold-probability"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="probability-text" id="cold-text">0%</div>
+            </div>
+            <div class="condition-item">
+              <div class="condition-name">Strong Winds</div>
+              <div class="probability-bar">
+                <div
+                  class="probability-fill windy"
+                  id="windy-probability"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="probability-text" id="windy-text">0%</div>
+            </div>
+            <div class="condition-item">
+              <div class="condition-name">Severe Rain</div>
+              <div class="probability-bar">
+                <div
+                  class="probability-fill wet"
+                  id="wet-probability"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="probability-text" id="wet-text">0%</div>
+            </div>
+          </div>
+          <div class="summary" id="summary">
+            The forecast summary will appear here
+          </div>
+          <div class="feature-card result" id="advice-prompt-card"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ADVICE MODAL -->
+    <div class="advice-modal-overlay" id="advice-modal">
+      <div class="advice-modal-content">
+        <button class="modal-close-advice">&times;</button>
+        <div class="good-advice">
+          <h3><i class="fas fa-check-circle"></i> Smart Choices</h3>
+          <ul class="advice-list" id="good-advice-list"></ul>
+        </div>
+        <div class="bad-advice">
+          <h3><i class="fas fa-exclamation-triangle"></i> Things to Avoid</h3>
+          <ul class="advice-list" id="bad-advice-list"></ul>
+        </div>
+        <div class="modal-refresh-container">
+          <button id="refresh-advice-btn" class="cta-button">
+            Get Another Tip
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="scripts/ExploreWeather.js"></script>
+  </body>
+</html>

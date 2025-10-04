@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClimaQuest | NASA Space Apps Challenge</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Styles/HomePage.css" />
+    <style></style>
+    <script>
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => (document.querySelector("header").innerHTML = data));
+    </script>
+  </head>
+  <body>
+    <header></header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Will It Rain On My Parade?</h2>
+        <p>
+          Plan your outdoor activities with confidence using NASA's historical
+          weather data to predict the likelihood of adverse conditions for any
+          location and time of year.
+        </p>
+        <a href="ExploreWeather.html" class="cta-button"
+          >Explore Weather Data</a
+        >
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="stars-background" id="featuresStars"></div>
+
+      <div class="section-title">
+        <h2>Why Choose ClimaQuest?</h2>
+        <p>
+          Our platform leverages NASA's extensive Earth observation data to
+          provide historical weather probabilities for any location and time of
+          year.
+        </p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-satellite"></i>
+          </div>
+          <h3>NASA Data Powered</h3>
+          <p>
+            Access decades of global weather data collected by NASA satellites
+            and ground stations to make informed decisions about your outdoor
+            plans.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3>Location Intelligence</h3>
+          <p>
+            Search by place name, drop a pin on the map, or draw boundaries to
+            get precise weather probability data for any location worldwide.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Historical Trends</h3>
+          <p>
+            See how weather patterns have changed over time with our advanced
+            trend analysis and interactive probability charts.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>Teach Your Child</h3>
+          <p>
+            The website's educational section, offering easy-to-understand
+            weather and climate knowledge for children and adults.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>User's Info</h3>
+          <p>
+            The short-term forecast feature, showing the predicted weather for
+            your current location for the next 10 days.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <h3>Weather Sience</h3>
+          <p>
+            this feature will help you If you want to get more information about
+            weather
+          </p>
+          <br />
+          <a href="WeatherSience.html" target="_blank">
+            <button class="cta-button">Know more</button></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="recommendations">
+      <div class="stars-background" id="recommendationsStars"></div>
+
+      <div class="section-title">
+        <h2>Recommended Destinations</h2>
+        <p>
+          Based on historical weather data, these locations have favorable
+          conditions for your planned activities.
+        </p>
+      </div>
+      <div class="recommendations-grid">
+        <div class="destination-card">
+          <div
+            class="destination-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            "
+          ></div>
+          <div class="destination-content">
+            <h3>Swiss Alps</h3>
+            <p>
+              Perfect hiking conditions with low precipitation probability in
+              September. Ideal for mountain adventures.
+            </p>
+            <span class="weather-tag">Low Rain Chance</span>
+          </div>
+        </div>
+        <div class="destination-card">
+          <div
+            class="destination-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            "
+          ></div>
+          <div class="destination-content">
+            <h3>Caribbean Coast</h3>
+            <p>
+              Ideal beach weather with minimal wind disruption in November.
+              Perfect for tropical getaways.
+            </p>
+            <span class="weather-tag">Calm Winds</span>
+          </div>
+        </div>
+        <div class="destination-card">
+          <div
+            class="destination-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1192&q=80');
+            "
+          ></div>
+          <div class="destination-content">
+            <h3>Japanese Countryside</h3>
+            <p>
+              Comfortable temperatures and clear skies during cherry blossom
+              season. A cultural delight.
+            </p>
+            <span class="weather-tag">Mild Temperatures</span>
+          </div>
+        </div>
+        <div class="destination-card">
+          <div
+            class="destination-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            "
+          ></div>
+          <div class="destination-content">
+            <h3>Norwegian Fjords</h3>
+            <p>
+              Excellent visibility and sailing conditions in the summer months.
+              Nature at its finest.
+            </p>
+            <span class="weather-tag">Clear Skies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+      <div class="stars-background" id="howItWorksStars"></div>
+
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Get weather probability insights in just three simple steps.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Select Location</h3>
+          <p>
+            Choose your destination by name, coordinates, or by placing a pin on
+            our interactive global map.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Set Date Range</h3>
+          <p>
+            Specify the time of year you're planning your activity, from a
+            single day to an entire season.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Get Insights</h3>
+          <p>
+            Receive detailed probability data for various weather conditions and
+            download your customized report.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section" id="contact-info">
+          <h3>ClimaQuest</h3>
+          <p>
+            Using NASA Earth observation data to help you plan outdoor
+            activities with confidence based on historical weather patterns.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="#">Home</a>
+          <a href="#">Dashboard</a>
+          <a href="#">Destinations</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <p><i class="fas fa-envelope"></i> ClimaQuest.team@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 ClimaQuest - NASA Space Apps Challenge. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="scripts/HomePage.js"></script>
+  </body>
+</html>
