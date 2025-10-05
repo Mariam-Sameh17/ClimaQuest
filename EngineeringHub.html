@@ -59,8 +59,7 @@
       }
 
       /* Background Effects */
-      #stars-container,
-      .weather-animation {
+      #stars-container, .weather-animation {
         position: fixed;
         top: 0;
         left: 0;
@@ -70,7 +69,7 @@
         overflow: hidden;
         transition: opacity 0.5s ease-in-out;
       }
-
+      
       body .weather-animation,
       body.light-mode #stars-container {
         opacity: 0;
@@ -92,98 +91,25 @@
       }
 
       @keyframes twinkle {
-        0%,
-        100% {
-          opacity: 0.3;
-        }
-        50% {
-          opacity: 1;
-        }
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
       }
-
-      .cloud {
-        position: absolute;
-        background: white;
-        border-radius: 100px;
-        opacity: 0.8;
-        animation: float 120s infinite linear;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      }
-      .cloud::before,
-      .cloud::after {
-        content: "";
-        position: absolute;
-        background: white;
-        border-radius: 50%;
-      }
-      .cloud::before {
-        width: 60%;
-        height: 100%;
-        top: -50%;
-        left: 20%;
-      }
-      .cloud::after {
-        width: 40%;
-        height: 70%;
-        top: -40%;
-        right: 10%;
-      }
-      .cloud:nth-child(1) {
-        width: 100px;
-        height: 40px;
-        top: 20%;
-        left: 10%;
-        transform: scale(1.2);
-      }
-      .cloud:nth-child(2) {
-        width: 150px;
-        height: 60px;
-        top: 40%;
-        right: 10%;
-        transform: scale(0.9);
-      }
-      .cloud:nth-child(3) {
-        width: 120px;
-        height: 50px;
-        bottom: 30%;
-        left: 20%;
-      }
-      .cloud:nth-child(4) {
-        width: 90px;
-        height: 35px;
-        top: 15%;
-        right: 5%;
-        transform: scale(0.8);
-      }
-      .cloud:nth-child(5) {
-        width: 140px;
-        height: 55px;
-        top: 60%;
-        left: 5%;
-        transform: scale(1.1);
-      }
-      .cloud:nth-child(6) {
-        width: 110px;
-        height: 45px;
-        bottom: 25%;
-        right: 15%;
-        transform: scale(0.7);
-      }
-      .cloud:nth-child(7) {
-        width: 160px;
-        height: 65px;
-        top: 50%;
-        left: 25%;
-        transform: scale(1.3);
-      }
+      
+      .cloud { position: absolute; background: white; border-radius: 100px; opacity: 0.8; animation: float 120s infinite linear; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+      .cloud::before, .cloud::after { content: ""; position: absolute; background: white; border-radius: 50%; }
+      .cloud::before { width: 60%; height: 100%; top: -50%; left: 20%; }
+      .cloud::after { width: 40%; height: 70%; top: -40%; right: 10%; }
+      .cloud:nth-child(1) { width: 100px; height: 40px; top: 20%; left: 10%; transform: scale(1.2); }
+      .cloud:nth-child(2) { width: 150px; height: 60px; top: 40%; right: 10%; transform: scale(0.9); }
+      .cloud:nth-child(3) { width: 120px; height: 50px; bottom: 30%; left: 20%; }
+      .cloud:nth-child(4) { width: 90px; height: 35px; top: 15%; right: 5%; transform: scale(0.8); }
+      .cloud:nth-child(5) { width: 140px; height: 55px; top: 60%; left: 5%; transform: scale(1.1); }
+      .cloud:nth-child(6) { width: 110px; height: 45px; bottom: 25%; right: 15%; transform: scale(0.7); }
+      .cloud:nth-child(7) { width: 160px; height: 65px; top: 50%; left: 25%; transform: scale(1.3); }
 
       @keyframes float {
-        0% {
-          transform: translateX(-150px);
-        }
-        100% {
-          transform: translateX(calc(100vw + 150px));
-        }
+          0% { transform: translateX(-150px); }
+          100% { transform: translateX(calc(100vw + 150px)); }
       }
 
       /* Header */
@@ -201,90 +127,23 @@
         transition: background-color 0.3s, box-shadow 0.3s;
       }
 
-      .img {
-        width: 3.5rem;
-        border-radius: 1.8rem;
-      }
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .logo h1 {
-        font-size: 1.8rem;
-        font-weight: 700;
-        background: var(--logo-text-gradient);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        align-items: center;
-      }
-      nav a {
-        color: var(--text-primary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        position: relative;
-        font-size: 1rem;
-      }
-      nav a:hover,
-      nav a.active {
-        color: var(--accent-primary);
-      }
-
+      .img { width: 3.5rem; border-radius: 1.8rem; }
+      .logo { display: flex; align-items: center; gap: 10px; }
+      .logo h1 { font-size: 1.8rem; font-weight: 700; background: var(--logo-text-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+      nav a { color: var(--text-primary); text-decoration: none; font-weight: 500; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 4px; position: relative; font-size: 1rem; }
+      nav a:hover, nav a.active { color: var(--accent-primary); }
+      
       /* Theme Switch */
-      .theme-switch-wrapper {
-        display: flex;
-        align-items: center;
-      }
-      .theme-switch {
-        display: inline-block;
-        height: 34px;
-        position: relative;
-        width: 60px;
-      }
-      .theme-switch input {
-        display: none;
-      }
-      .slider {
-        background-color: #ccc;
-        bottom: 0;
-        cursor: pointer;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transition: 0.4s;
-      }
-      .slider:before {
-        background-color: #fff;
-        bottom: 4px;
-        content: "";
-        height: 26px;
-        left: 4px;
-        position: absolute;
-        transition: 0.4s;
-        width: 26px;
-      }
-      input:checked + .slider {
-        background-color: var(--accent-tertiary);
-      }
-      input:checked + .slider:before {
-        transform: translateX(26px);
-      }
-      .slider.round {
-        border-radius: 34px;
-      }
-      .slider.round:before {
-        border-radius: 50%;
-      }
+      .theme-switch-wrapper { display: flex; align-items: center; }
+      .theme-switch { display: inline-block; height: 34px; position: relative; width: 60px; }
+      .theme-switch input { display: none; }
+      .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: 0.4s; }
+      .slider:before { background-color: #fff; bottom: 4px; content: ""; height: 26px; left: 4px; position: absolute; transition: 0.4s; width: 26px; }
+      input:checked + .slider { background-color: var(--accent-tertiary); }
+      input:checked + .slider:before { transform: translateX(26px); }
+      .slider.round { border-radius: 34px; }
+      .slider.round:before { border-radius: 50%; }
 
       .container {
         max-width: 1200px;
@@ -296,11 +155,7 @@
         text-align: center;
         font-size: 3.5rem;
         margin-bottom: 2rem;
-        background: linear-gradient(
-          to right,
-          var(--accent-secondary),
-          var(--accent-primary)
-        );
+        background: linear-gradient( to right, var(--accent-secondary), var(--accent-primary) );
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -315,11 +170,7 @@
         box-shadow: 0 10px 30px var(--shadow-color);
         text-align: center;
       }
-      label {
-        font-weight: bold;
-        margin-right: 1rem;
-        font-size: 1.2rem;
-      }
+      label { font-weight: bold; margin-right: 1rem; font-size: 1.2rem; }
       select {
         padding: 0.8rem 1.2rem;
         border-radius: 8px;
@@ -353,36 +204,14 @@
         margin-bottom: 2rem;
         font-size: 0.95rem;
       }
-      th,
-      td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid var(--card-border-color);
-      }
-      th {
-        font-weight: bold;
-        color: var(--accent-secondary);
-      }
-      tr:last-child td {
-        border-bottom: none;
-      }
-      .material-row:nth-child(even) {
-        background-color: rgba(0, 0, 0, 0.1);
-      }
-      body.light-mode .material-row:nth-child(even) {
-        background-color: #f8f9fa;
-      }
-      .warning-row:nth-child(even) {
-        background-color: rgba(220, 53, 69, 0.1);
-      }
-      .rating-label {
-        font-size: 12px;
-        opacity: 0.7;
-        display: block;
-      }
-      td strong {
-        color: var(--accent-secondary);
-      }
+      th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--card-border-color); }
+      th { font-weight: bold; color: var(--accent-secondary); }
+      tr:last-child td { border-bottom: none; }
+      .material-row:nth-child(even) { background-color: rgba(0,0,0,0.1); }
+      body.light-mode .material-row:nth-child(even) { background-color: #f8f9fa; }
+      .warning-row:nth-child(even) { background-color: rgba(220, 53, 69, 0.1); }
+      .rating-label { font-size: 12px; opacity: 0.7; display: block; }
+      td strong { color: var(--accent-secondary); }
 
       .best-option {
         font-weight: bold;
@@ -395,57 +224,29 @@
         text-align: center;
         border-left: 5px solid var(--accent-tertiary);
       }
-
+      
       .info-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 1.5rem;
       }
       .info-card {
-        background: rgba(0, 0, 0, 0.1);
+        background: rgba(0,0,0,0.1);
         padding: 1.5rem;
         border-radius: 8px;
         text-align: center;
       }
-      body.light-mode .info-card {
-        background-color: #f8f9fa;
-      }
-      .info-card .icon {
-        font-size: 2rem;
-        color: var(--accent-secondary);
-        margin-bottom: 0.5rem;
-      }
-      .info-card .value {
-        font-size: 1.8rem;
-        font-weight: 700;
-      }
-      .info-card .label {
-        font-size: 1rem;
-        opacity: 0.8;
-      }
-      .info-card .note {
-        font-size: 0.9rem;
-        opacity: 0.7;
-        margin-top: 0.5rem;
-      }
-      .severity-High {
-        color: #e74c3c;
-      }
-      .severity-Medium {
-        color: #f39c12;
-      }
-      .severity-Low {
-        color: #2ecc71;
-      }
-      .potential-Excellent {
-        color: #2ecc71;
-      }
-      .potential-Good {
-        color: #f1c40f;
-      }
-      .potential-Moderate {
-        color: #e67e22;
-      }
+      body.light-mode .info-card { background-color: #f8f9fa; }
+      .info-card .icon { font-size: 2rem; color: var(--accent-secondary); margin-bottom: 0.5rem; }
+      .info-card .value { font-size: 1.8rem; font-weight: 700; }
+      .info-card .label { font-size: 1rem; opacity: 0.8; }
+      .info-card .note { font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;}
+      .severity-High { color: #e74c3c; }
+      .severity-Medium { color: #f39c12; }
+      .severity-Low { color: #2ecc71; }
+      .potential-Excellent { color: #2ecc71; }
+      .potential-Good { color: #f1c40f; }
+      .potential-Moderate { color: #e67e22; }
 
       .data-source-note {
         text-align: right;
@@ -454,20 +255,12 @@
         margin-top: 2rem;
       }
 
-      .download-buttons {
-        margin-top: 2rem;
-        text-align: center;
-        display: none;
-      }
+      .download-buttons { margin-top: 2rem; text-align: center; display: none; }
       button {
         padding: 1rem 2.5rem;
         margin: 0.5rem;
         cursor: pointer;
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
+        background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
         color: var(--bg-secondary);
         border: none;
         border-radius: 50px;
@@ -476,153 +269,56 @@
         transition: all 0.4s;
         box-shadow: 0 5px 15px var(--shadow-color);
       }
-      body.light-mode button {
-        color: white;
-      }
+      body.light-mode button { color: white; }
       button:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 25px var(--shadow-color);
       }
 
-      footer {
-        background-color: var(--bg-secondary);
-        color: var(--text-primary);
-        padding: 4rem 2rem 2rem;
-        border-top: 1px solid var(--accent-tertiary);
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .footer-section h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1.8rem;
-        background: linear-gradient(
-          to right,
-          var(--accent-secondary),
-          var(--accent-primary)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .footer-section p,
-      .footer-section a {
-        margin-bottom: 1rem;
-        display: block;
-        text-decoration: none;
-        transition: color 0.3s;
-        font-size: 1.1rem;
-      }
-      .footer-section a:hover {
-        color: var(--accent-secondary);
-      }
-      .social-links {
-        display: flex;
-        gap: 1.2rem;
-        margin-top: 1.5rem;
-      }
-      .social-links a {
-        width: 45px;
-        height: 45px;
-        background: var(--bg-primary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s;
-        box-shadow: 0 5px 15px var(--shadow-color);
-        border: 1px solid var(--accent-tertiary);
-      }
-      .social-links a:hover {
-        background: linear-gradient(
-          135deg,
-          var(--accent-primary),
-          var(--accent-secondary)
-        );
-        transform: translateY(-5px);
-        color: var(--bg-secondary);
-      }
-      body.light-mode .social-links a:hover {
-        color: white;
-      }
-      .footer-bottom {
-        text-align: center;
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        font-size: 1rem;
-      }
-      body.light-mode .footer-bottom {
-        border-top-color: rgba(0, 0, 0, 0.1);
-      }
+      footer { background-color: var(--bg-secondary); color: var(--text-primary); padding: 4rem 2rem 2rem; border-top: 1px solid var(--accent-tertiary); }
+      .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; max-width: 1200px; margin: 0 auto; }
+      .footer-section h3 { font-size: 1.4rem; margin-bottom: 1.8rem; background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .footer-section p, .footer-section a { margin-bottom: 1rem; display: block; text-decoration: none; transition: color 0.3s; font-size: 1.1rem; }
+      .footer-section a:hover { color: var(--accent-secondary); }
+      .social-links { display: flex; gap: 1.2rem; margin-top: 1.5rem; }
+      .social-links a { width: 45px; height: 45px; background: var(--bg-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s; box-shadow: 0 5px 15px var(--shadow-color); border: 1px solid var(--accent-tertiary); }
+      .social-links a:hover { background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); transform: translateY(-5px); color: var(--bg-secondary); }
+      body.light-mode .social-links a:hover { color: white; }
+      .footer-bottom { text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 1rem; }
+      body.light-mode .footer-bottom { border-top-color: rgba(0,0,0,0.1); }
 
       @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          padding: 1rem;
-          gap: 1rem;
-        }
-        nav ul {
-          gap: 0.5rem;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        .main-title {
-          font-size: 2.5rem;
-        }
-        .city-selector {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        select {
-          width: 100%;
-        }
-        th,
-        td {
-          font-size: 0.85rem;
-          padding: 0.7rem 0.4rem;
-        }
-        .results-section {
-          padding: 1.5rem;
-        }
+        header { flex-direction: column; padding: 1rem; gap: 1rem; }
+        nav ul { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+        .main-title { font-size: 2.5rem; }
+        .city-selector { display: flex; flex-direction: column; gap: 1rem; }
+        select { width: 100%; }
+        th, td { font-size: 0.85rem; padding: 0.7rem 0.4rem; }
+        .results-section { padding: 1.5rem; }
       }
     </style>
   </head>
   <body>
+    <!-- Backgrounds -->
     <div id="stars-container"></div>
     <div class="weather-animation">
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
-      <div class="cloud"></div>
+        <div class="cloud"></div><div class="cloud"></div><div class="cloud"></div>
+        <div class="cloud"></div><div class="cloud"></div><div class="cloud"></div><div class="cloud"></div>
     </div>
 
     <header>
       <div class="logo">
-        <img
-          src="pics/Logo.jpg"
-          class="img"
-          alt="ClimaQuest Logo"
-        />
+        <img src="https://placehold.co/100x100/2c3e50/d8e2e9?text=CQ" class="img" alt="ClimaQuest Logo"/>
         <h1>ClimaQuest</h1>
       </div>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="ExploreWeather.html">Plan Your Trip</a></li>
           <li><a href="WeatherSience.html">Weather Science</a></li>
           <li><a href="TeachYourChild.html">Teach Your Child</a></li>
           <li><a href="MyWeather.html">My Weather</a></li>
-
-          <li><a href="about.html">About</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="EngineeringHub.html" class="active">Engineering Hub</a></li>
           <li>
             <div class="theme-switch-wrapper">
               <label class="theme-switch" for="checkbox">
@@ -636,68 +332,68 @@
     </header>
 
     <div class="container">
-      <h1 class="main-title">WeatherWise Engineering Hub</h1>
-
-      <div class="city-selector">
-        <label for="city">Select a city:</label>
-        <select id="city" onchange="showRecommendations()">
-          <option value="">--Choose a city--</option>
-          <option value="Bangkok">Bangkok</option>
-          <option value="Barcelona">Barcelona</option>
-          <option value="Cairo">Cairo</option>
-          <option value="Dubai">Dubai</option>
-          <option value="Hong Kong">Hong Kong</option>
-          <option value="Istanbul">Istanbul</option>
-          <option value="London">London</option>
-          <option value="Los Angeles">Los Angeles</option>
-          <option value="New York">New York</option>
-          <option value="Paris">Paris</option>
-          <option value="Rome">Rome</option>
-          <option value="Shanghai">Shanghai</option>
-          <option value="Tokyo">Tokyo</option>
-        </select>
-      </div>
-
-      <div id="results"></div>
-
-      <div class="download-buttons" id="download-buttons">
-        <button onclick="downloadCSV()">Download CSV</button>
-        <button onclick="downloadPDF()">Download PDF</button>
-      </div>
+        <h1 class="main-title">WeatherWise Engineering Hub</h1>
+        
+        <div class="city-selector">
+            <label for="city">Select a city:</label>
+            <select id="city" onchange="showRecommendations()">
+                <option value="">--Choose a city--</option>
+                <option value="Bangkok">Bangkok</option>
+                <option value="Barcelona">Barcelona</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Dubai">Dubai</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Istanbul">Istanbul</option>
+                <option value="London">London</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="New York">New York</option>
+                <option value="Paris">Paris</option>
+                <option value="Rome">Rome</option>
+                <option value="Shanghai">Shanghai</option>
+                <option value="Tokyo">Tokyo</option>
+            </select>
+        </div>
+        
+        <div id="results"></div>
+        
+        <div class="download-buttons" id="download-buttons">
+            <button onclick="downloadCSV()">Download CSV</button>
+            <button onclick="downloadPDF()">Download PDF</button>
+        </div>
     </div>
-
+    
     <footer>
-      <div class="footer-content" id="contact-info">
-        <div class="footer-section">
-          <h3>ClimaQuest</h3>
-          <p>
-            Using NASA Earth observation data to help you plan outdoor
-            activities with confidence based on historical weather patterns.
-          </p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <div class="footer-content" id="contact-info">
+          <div class="footer-section">
+            <h3>ClimaQuest</h3>
+            <p>
+              Using NASA Earth observation data to help you plan outdoor
+              activities with confidence based on historical weather patterns.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="WeatherSience.html">Weather Science</a>
+            <a href="About.html">About Us</a>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-envelope"></i> ClimaQuest.team@gmail.com</p>
           </div>
         </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <a href="index.html">Home</a>
-          <a href="WeatherSience.html">Weather Science</a>
-          <a href="About.html">About Us</a>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 ClimaQuest - NASA Space Apps Challenge. All rights
+            reserved.
+          </p>
         </div>
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <p><i class="fas fa-envelope"></i> ClimaQuest.team@gmail.com</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>
-          &copy; 2025 ClimaQuest - NASA Space Apps Challenge. All rights
-          reserved.
-        </p>
-      </div>
     </footer>
 
     <script>
@@ -730,1320 +426,166 @@
         if (savedTheme) {
           applyTheme(savedTheme);
         }
-
+        
         // --- Starry Background ---
         const starsContainer = document.getElementById("stars-container");
-        if (starsContainer) {
-          for (let i = 0; i < 150; i++) {
-            const star = document.createElement("div");
-            star.className = "star";
-            const size = Math.random() * 3;
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 5}s`;
-            starsContainer.appendChild(star);
-          }
+        if (starsContainer){
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement("div");
+                star.className = "star";
+                const size = Math.random() * 3;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starsContainer.appendChild(star);
+            }
         }
-
+        
         // --- Initialize with Dubai data ---
-        document.getElementById("city").value = "Dubai";
+        document.getElementById('city').value = 'Dubai';
         showRecommendations();
       });
 
       const materialsDB = {
-        Bangkok: {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Teak Wood",
-              durability: 7,
-              eco: 8,
-              cost: 8,
-              lifespan: "50 yrs",
-              carbon: "Low",
-              availability: "6/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 6,
-              eco: 6,
-              cost: 8,
-              lifespan: "50 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 5,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Regular Wood",
-              reason: "High humidity causes rot and termite infestation.",
-            },
-            {
-              material: "Steel",
-              reason:
-                "High humidity accelerates corrosion without proper treatment.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "150",
-              unit: "days/yr > 32°C",
-              severity: "High",
-            },
-            airQuality: {
-              value: "1.5",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: { value: "High", unit: "Events/yr", severity: "High" },
-            uvIndex: { value: "11", unit: "Avg. Max", severity: "High" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.45", unit: "m³/m³", note: "Saturated" },
-            evapotranspiration: { value: "4.1", unit: "mm/day" },
-            groundwaterStress: { value: "Medium" },
-            droughtRisk: { value: "Low", note: "Monsoon climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "4.5",
-              unit: "kWh/m²/day",
-              potential: "Good",
-            },
-            windSpeed: { value: "2.1", unit: "m/s at 50m", potential: "Low" },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Minor fault lines." },
-            soilType: { value: "Alluvial Clay", note: "Prone to settlement." },
-          },
-        },
-        Barcelona: {
-          options: [
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Terracotta",
-              durability: 8,
-              eco: 8,
-              cost: 6,
-              lifespan: "70 yrs",
-              carbon: "Low",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 7,
-              eco: 6,
-              cost: 8,
-              lifespan: "60 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-          ],
-          best: "Stone",
-          warnings: [
-            {
-              material: "Wood",
-              reason:
-                "Mediterranean climate with high humidity affects durability.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for coastal areas with salt exposure.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "40",
-              unit: "days/yr > 30°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.2",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: {
-              value: "Medium",
-              unit: "Events/yr",
-              severity: "Medium",
-            },
-            uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.25", unit: "m³/m³", note: "Moderate" },
-            evapotranspiration: { value: "3.5", unit: "mm/day" },
-            groundwaterStress: { value: "High" },
-            droughtRisk: { value: "Medium", note: "Seasonal dryness." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "4.8",
-              unit: "kWh/m²/day",
-              potential: "Good",
-            },
-            windSpeed: {
-              value: "3.5",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Low seismic activity." },
-            soilType: { value: "Clay & Sand", note: "Variable load-bearing." },
-          },
-        },
-        Cairo: {
-          options: [
-            {
-              material: "Clay Bricks",
-              durability: 7,
-              eco: 8,
-              cost: 6,
-              lifespan: "60 yrs",
-              carbon: "Low",
-              availability: "10/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 5,
-              eco: 6,
-              cost: 8,
-              lifespan: "40 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 4,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Weak in hot dry climates, degrades quickly.",
-            },
-            {
-              material: "Glass",
-              reason: "Poor insulation, not suitable for extreme heat.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "180",
-              unit: "days/yr > 35°C",
-              severity: "High",
-            },
-            airQuality: {
-              value: "2.0",
-              unit: "Aerosol Index",
-              severity: "High",
-            },
-            floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" },
-            uvIndex: { value: "10", unit: "Avg. Max", severity: "High" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.10", unit: "m³/m³", note: "Very Dry" },
-            evapotranspiration: { value: "5.5", unit: "mm/day" },
-            groundwaterStress: { value: "High" },
-            droughtRisk: { value: "High", note: "Arid desert climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "5.9",
-              unit: "kWh/m²/day",
-              potential: "Excellent",
-            },
-            windSpeed: {
-              value: "4.8",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Medium", note: "Near active fault zone." },
-            soilType: { value: "Silty Clay", note: "Good for foundations." },
-          },
-        },
-        Dubai: {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 8,
-              eco: 5,
-              cost: 9,
-              lifespan: "70 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 7,
-              regulations: "✔",
-            },
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Extreme heat causes warping and degradation.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for modern high-rise construction.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "200",
-              unit: "days/yr > 38°C",
-              severity: "High",
-            },
-            airQuality: {
-              value: "1.8",
-              unit: "Aerosol Index",
-              severity: "High",
-            },
-            floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" },
-            uvIndex: { value: "11+", unit: "Index", severity: "High" },
-          },
-          hydrology: {
-            soilMoisture: {
-              value: "0.08",
-              unit: "m³/m³",
-              note: "Extremely Dry",
-            },
-            evapotranspiration: { value: "6.0", unit: "mm/day" },
-            groundwaterStress: { value: "High" },
-            droughtRisk: { value: "High", note: "Desert climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "6.2",
-              unit: "kWh/m²/day",
-              potential: "Excellent",
-            },
-            windSpeed: {
-              value: "4.2",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Minor fault lines nearby." },
-            soilType: {
-              value: "Sand & Siltstone",
-              note: "Requires deep foundations.",
-            },
-          },
-        },
-        "Hong Kong": {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 8,
-              eco: 5,
-              cost: 9,
-              lifespan: "70 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 7,
-              regulations: "✔",
-            },
-            {
-              material: "Bamboo Composite",
-              durability: 6,
-              eco: 10,
-              cost: 5,
-              lifespan: "40 yrs",
-              carbon: "Low",
-              availability: "5/10",
-              resilience: 5,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "High humidity and typhoon risk make it unsuitable.",
-            },
-            {
-              material: "Adobe",
-              reason:
-                "Not suitable for high-rise buildings in dense urban areas.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "90",
-              unit: "days/yr > 30°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.6",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: {
-              value: "High",
-              unit: "Typhoon Risk",
-              severity: "High",
-            },
-            uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.40", unit: "m³/m³", note: "Moist" },
-            evapotranspiration: { value: "3.8", unit: "mm/day" },
-            groundwaterStress: { value: "Low" },
-            droughtRisk: { value: "Low", note: "Subtropical climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "3.8",
-              unit: "kWh/m²/day",
-              potential: "Moderate",
-            },
-            windSpeed: { value: "5.5", unit: "m/s at 50m", potential: "Good" },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Low seismic activity." },
-            soilType: { value: "Decomposed Granite", note: "Good stability." },
-          },
-        },
-        Istanbul: {
-          options: [
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-          ],
-          best: "Stone",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Earthquake risk makes it less suitable.",
-            },
-            { material: "Glass", reason: "Not ideal for seismic activity." },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "30",
-              unit: "days/yr > 30°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.3",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: {
-              value: "Medium",
-              unit: "Events/yr",
-              severity: "Medium",
-            },
-            uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.28", unit: "m³/m³", note: "Moderate" },
-            evapotranspiration: { value: "3.2", unit: "mm/day" },
-            groundwaterStress: { value: "Medium" },
-            droughtRisk: { value: "Medium", note: "Dry summers." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "4.2",
-              unit: "kWh/m²/day",
-              potential: "Good",
-            },
-            windSpeed: {
-              value: "4.0",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "High", note: "On North Anatolian Fault." },
-            soilType: {
-              value: "Clay & Limestone",
-              note: "Variable conditions.",
-            },
-          },
-        },
-        London: {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 6,
-              eco: 6,
-              cost: 8,
-              lifespan: "50 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 5,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Absorbs moisture, rots in damp climates.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for rainy and cold climates.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "5",
-              unit: "days/yr > 28°C",
-              severity: "Low",
-            },
-            airQuality: {
-              value: "1.0",
-              unit: "Aerosol Index",
-              severity: "Low",
-            },
-            floodRisk: {
-              value: "Medium",
-              unit: "River/Surface",
-              severity: "Medium",
-            },
-            uvIndex: { value: "6", unit: "Avg. Max", severity: "Low" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.35", unit: "m³/m³", note: "Moist" },
-            evapotranspiration: { value: "1.8", unit: "mm/day" },
-            groundwaterStress: { value: "Low" },
-            droughtRisk: { value: "Low", note: "Temperate climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "2.7",
-              unit: "kWh/m²/day",
-              potential: "Low",
-            },
-            windSpeed: {
-              value: "4.5",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Very low seismic risk." },
-            soilType: { value: "London Clay", note: "High plasticity." },
-          },
-        },
-        "Los Angeles": {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Adobe",
-              durability: 7,
-              eco: 9,
-              cost: 5,
-              lifespan: "60 yrs",
-              carbon: "Low",
-              availability: "6/10",
-              resilience: 7,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 7,
-              eco: 6,
-              cost: 8,
-              lifespan: "60 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Fire risk in dry climate with wildfires.",
-            },
-            {
-              material: "Brick",
-              reason: "Earthquake vulnerability without reinforcement.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "60",
-              unit: "days/yr > 32°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.7",
-              unit: "Aerosol Index",
-              severity: "High",
-            },
-            floodRisk: { value: "Low", unit: "Flash Floods", severity: "Low" },
-            uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.18", unit: "m³/m³", note: "Dry" },
-            evapotranspiration: { value: "4.0", unit: "mm/day" },
-            groundwaterStress: { value: "High" },
-            droughtRisk: { value: "High", note: "Frequent droughts." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "5.5",
-              unit: "kWh/m²/day",
-              potential: "Excellent",
-            },
-            windSpeed: { value: "3.0", unit: "m/s at 50m", potential: "Low" },
-          },
-          geotechnical: {
-            seismicHazard: { value: "High", note: "Near San Andreas Fault." },
-            soilType: { value: "Alluvium", note: "Liquefaction risk." },
-          },
-        },
-        "New York": {
-          options: [
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-          ],
-          best: "Steel",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Slippery, unstable in snow and ice storms.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for cold winters with freeze-thaw cycles.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "15",
-              unit: "days/yr > 32°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.2",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: {
-              value: "Medium",
-              unit: "Coastal/Storm",
-              severity: "Medium",
-            },
-            uvIndex: { value: "7", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.30", unit: "m³/m³", note: "Moderate" },
-            evapotranspiration: { value: "2.5", unit: "mm/day" },
-            groundwaterStress: { value: "Low" },
-            droughtRisk: { value: "Low", note: "Humid continental." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "4.0",
-              unit: "kWh/m²/day",
-              potential: "Good",
-            },
-            windSpeed: {
-              value: "4.9",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Minor intraplate risk." },
-            soilType: {
-              value: "Manhattan Schist",
-              note: "Excellent foundation.",
-            },
-          },
-        },
-        Paris: {
-          options: [
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 7,
-              eco: 6,
-              cost: 8,
-              lifespan: "60 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-          ],
-          best: "Stone",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Susceptible to moisture damage in temperate climates.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for urban environments with pollution.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "10",
-              unit: "days/yr > 30°C",
-              severity: "Low",
-            },
-            airQuality: {
-              value: "1.1",
-              unit: "Aerosol Index",
-              severity: "Low",
-            },
-            floodRisk: { value: "Low", unit: "Riverine", severity: "Low" },
-            uvIndex: { value: "6", unit: "Avg. Max", severity: "Low" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.32", unit: "m³/m³", note: "Moist" },
-            evapotranspiration: { value: "2.0", unit: "mm/day" },
-            groundwaterStress: { value: "Low" },
-            droughtRisk: { value: "Low", note: "Oceanic climate." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "3.2",
-              unit: "kWh/m²/day",
-              potential: "Moderate",
-            },
-            windSpeed: {
-              value: "4.1",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Very low seismic risk." },
-            soilType: { value: "Limestone & Marl", note: "Generally stable." },
-          },
-        },
-        Rome: {
-          options: [
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Terracotta",
-              durability: 8,
-              eco: 8,
-              cost: 6,
-              lifespan: "70 yrs",
-              carbon: "Low",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 6,
-              eco: 6,
-              cost: 8,
-              lifespan: "50 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 5,
-              regulations: "✔",
-            },
-          ],
-          best: "Stone",
-          warnings: [
-            {
-              material: "Wood",
-              reason:
-                "Not suitable for Mediterranean climate with high temperatures.",
-            },
-            {
-              material: "Adobe",
-              reason: "Limited durability in urban environments.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "50",
-              unit: "days/yr > 32°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.2",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" },
-            uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: {
-              value: "0.22",
-              unit: "m³/m³",
-              note: "Dry-Moderate",
-            },
-            evapotranspiration: { value: "3.7", unit: "mm/day" },
-            groundwaterStress: { value: "Medium" },
-            droughtRisk: { value: "Medium", note: "Hot, dry summers." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "4.6",
-              unit: "kWh/m²/day",
-              potential: "Good",
-            },
-            windSpeed: { value: "3.2", unit: "m/s at 50m", potential: "Low" },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Medium", note: "Moderate regional risk." },
-            soilType: {
-              value: "Volcanic Tuff & Alluvium",
-              note: "Complex geology.",
-            },
-          },
-        },
-        Shanghai: {
-          options: [
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Brick",
-              durability: 8,
-              eco: 7,
-              cost: 6,
-              lifespan: "75 yrs",
-              carbon: "Medium",
-              availability: "8/10",
-              resilience: 8,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 7,
-              eco: 6,
-              cost: 8,
-              lifespan: "60 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-          ],
-          best: "Concrete",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "High humidity causes rot and mold issues.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not suitable for high-rise construction.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "70",
-              unit: "days/yr > 32°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.9",
-              unit: "Aerosol Index",
-              severity: "High",
-            },
-            floodRisk: {
-              value: "High",
-              unit: "Coastal/Typhoon",
-              severity: "High",
-            },
-            uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.42", unit: "m³/m³", note: "Moist" },
-            evapotranspiration: { value: "3.0", unit: "mm/day" },
-            groundwaterStress: { value: "High" },
-            droughtRisk: { value: "Low", note: "Humid subtropical." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "3.5",
-              unit: "kWh/m²/day",
-              potential: "Moderate",
-            },
-            windSpeed: {
-              value: "4.5",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "Low", note: "Low seismic risk." },
-            soilType: { value: "Marine Clay", note: "Soft and compressible." },
-          },
-        },
-        Tokyo: {
-          options: [
-            {
-              material: "Steel",
-              durability: 9,
-              eco: 6,
-              cost: 8,
-              lifespan: "100 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Concrete",
-              durability: 9,
-              eco: 4,
-              cost: 7,
-              lifespan: "80 yrs",
-              carbon: "High",
-              availability: "9/10",
-              resilience: 9,
-              regulations: "✔",
-            },
-            {
-              material: "Glass",
-              durability: 7,
-              eco: 6,
-              cost: 8,
-              lifespan: "60 yrs",
-              carbon: "High",
-              availability: "8/10",
-              resilience: 6,
-              regulations: "✔",
-            },
-            {
-              material: "Stone",
-              durability: 10,
-              eco: 7,
-              cost: 9,
-              lifespan: "150 yrs",
-              carbon: "Low",
-              availability: "7/10",
-              resilience: 10,
-              regulations: "✔",
-            },
-          ],
-          best: "Steel",
-          warnings: [
-            {
-              material: "Wood",
-              reason: "Vulnerable to earthquakes if not properly reinforced.",
-            },
-            {
-              material: "Adobe",
-              reason: "Not earthquake-resistant for high seismic zones.",
-            },
-          ],
-          risks: {
-            extremeHeat: {
-              value: "65",
-              unit: "days/yr > 30°C",
-              severity: "Medium",
-            },
-            airQuality: {
-              value: "1.4",
-              unit: "Aerosol Index",
-              severity: "Medium",
-            },
-            floodRisk: {
-              value: "High",
-              unit: "Typhoon/Tsunami",
-              severity: "High",
-            },
-            uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium" },
-          },
-          hydrology: {
-            soilMoisture: { value: "0.38", unit: "m³/m³", note: "Moist" },
-            evapotranspiration: { value: "2.8", unit: "mm/day" },
-            groundwaterStress: { value: "Medium" },
-            droughtRisk: { value: "Low", note: "Humid subtropical." },
-          },
-          energy: {
-            solarIrradiance: {
-              value: "3.7",
-              unit: "kWh/m²/day",
-              potential: "Moderate",
-            },
-            windSpeed: {
-              value: "4.8",
-              unit: "m/s at 50m",
-              potential: "Moderate",
-            },
-          },
-          geotechnical: {
-            seismicHazard: { value: "High", note: "Major seismic activity." },
-            soilType: {
-              value: "Alluvial Deposits",
-              note: "High liquefaction risk.",
-            },
-          },
-        },
-      };
+            "Bangkok": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Teak Wood", durability: 7, eco: 8, cost: 8, lifespan: "50 yrs", carbon: "Low", availability: "6/10", resilience: 6, regulations: "✔" }, { material: "Glass", durability: 6, eco: 6, cost: 8, lifespan: "50 yrs", carbon: "High", availability: "8/10", resilience: 5, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Regular Wood", reason: "High humidity causes rot and termite infestation." }, { material: "Steel", reason: "High humidity accelerates corrosion without proper treatment." } ],
+                risks: { extremeHeat: { value: "150", unit: "days/yr > 32°C", severity: "High" }, airQuality: { value: "1.5", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "High", unit: "Events/yr", severity: "High" }, uvIndex: { value: "11", unit: "Avg. Max", severity: "High"} },
+                hydrology: { soilMoisture: { value: "0.45", unit: "m³/m³", note: "Saturated" }, evapotranspiration: { value: "4.1", unit: "mm/day"}, groundwaterStress: "Medium", droughtRisk: { value: "Low", note: "Monsoon climate." } },
+                energy: { solarIrradiance: { value: "4.5", unit: "kWh/m²/day", potential: "Good" }, windSpeed: { value: "2.1", unit: "m/s at 50m", potential: "Low" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Minor fault lines." }, soilType: { value: "Alluvial Clay", note: "Prone to settlement."} }
+            },
+            "Barcelona": {
+                options: [ { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Terracotta", durability: 8, eco: 8, cost: 6, lifespan: "70 yrs", carbon: "Low", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Glass", durability: 7, eco: 6, cost: 8, lifespan: "60 yrs", carbon: "High", availability: "8/10", resilience: 6, regulations: "✔" } ],
+                best: "Stone",
+                warnings: [ { material: "Wood", reason: "Mediterranean climate with high humidity affects durability." }, { material: "Adobe", reason: "Not suitable for coastal areas with salt exposure." } ],
+                risks: { extremeHeat: { value: "40", unit: "days/yr > 30°C", severity: "Medium" }, airQuality: { value: "1.2", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "Medium", unit: "Events/yr", severity: "Medium" }, uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.25", unit: "m³/m³", note: "Moderate" }, evapotranspiration: { value: "3.5", unit: "mm/day"}, groundwaterStress: "High", droughtRisk: { value: "Medium", note: "Seasonal dryness." } },
+                energy: { solarIrradiance: { value: "4.8", unit: "kWh/m²/day", potential: "Good" }, windSpeed: { value: "3.5", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Low seismic activity." }, soilType: { value: "Clay & Sand", note: "Variable load-bearing."} }
+            },
+            "Cairo": {
+                options: [ { material: "Clay Bricks", durability: 7, eco: 8, cost: 6, lifespan: "60 yrs", carbon: "Low", availability: "10/10", resilience: 6, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Glass", durability: 5, eco: 6, cost: 8, lifespan: "40 yrs", carbon: "High", availability: "8/10", resilience: 4, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "Weak in hot dry climates, degrades quickly." }, { material: "Glass", reason: "Poor insulation, not suitable for extreme heat." } ],
+                risks: { extremeHeat: { value: "180", unit: "days/yr > 35°C", severity: "High" }, airQuality: { value: "2.0", unit: "Aerosol Index", severity: "High" }, floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" }, uvIndex: { value: "10", unit: "Avg. Max", severity: "High"} },
+                hydrology: { soilMoisture: { value: "0.10", unit: "m³/m³", note: "Very Dry" }, evapotranspiration: { value: "5.5", unit: "mm/day"}, groundwaterStress: "High", droughtRisk: { value: "High", note: "Arid desert climate." } },
+                energy: { solarIrradiance: { value: "5.9", unit: "kWh/m²/day", potential: "Excellent" }, windSpeed: { value: "4.8", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Medium", note: "Near active fault zone." }, soilType: { value: "Silty Clay", note: "Good for foundations."} }
+            },
+            "Dubai": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Glass", durability: 8, eco: 5, cost: 9, lifespan: "70 yrs", carbon: "High", availability: "8/10", resilience: 7, regulations: "✔" }, { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "Extreme heat causes warping and degradation." }, { material: "Adobe", reason: "Not suitable for modern high-rise construction." } ],
+                risks: { extremeHeat: { value: "200", unit: "days/yr > 38°C", severity: "High" }, airQuality: { value: "1.8", unit: "Aerosol Index", severity: "High" }, floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" }, uvIndex: { value: "11+", unit: "Index", severity: "High"} },
+                hydrology: { soilMoisture: { value: "0.08", unit: "m³/m³", note: "Extremely Dry" }, evapotranspiration: { value: "6.0", unit: "mm/day"}, groundwaterStress: "High", droughtRisk: { value: "High", note: "Desert climate." } },
+                energy: { solarIrradiance: { value: "6.2", unit: "kWh/m²/day", potential: "Excellent" }, windSpeed: { value: "4.2", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Minor fault lines nearby." }, soilType: { value: "Sand & Siltstone", note: "Requires deep foundations."} }
+            },
+            "Hong Kong": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Glass", durability: 8, eco: 5, cost: 9, lifespan: "70 yrs", carbon: "High", availability: "8/10", resilience: 7, regulations: "✔" }, { material: "Bamboo Composite", durability: 6, eco: 10, cost: 5, lifespan: "40 yrs", carbon: "Low", availability: "5/10", resilience: 5, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "High humidity and typhoon risk make it unsuitable." }, { material: "Adobe", reason: "Not suitable for high-rise buildings in dense urban areas." } ],
+                risks: { extremeHeat: { value: "90", unit: "days/yr > 30°C", severity: "Medium" }, airQuality: { value: "1.6", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "High", unit: "Typhoon Risk", severity: "High" }, uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.40", unit: "m³/m³", note: "Moist" }, evapotranspiration: { value: "3.8", unit: "mm/day"}, groundwaterStress: "Low", droughtRisk: { value: "Low", note: "Subtropical climate." } },
+                energy: { solarIrradiance: { value: "3.8", unit: "kWh/m²/day", potential: "Moderate" }, windSpeed: { value: "5.5", unit: "m/s at 50m", potential: "Good" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Low seismic activity." }, soilType: { value: "Decomposed Granite", note: "Good stability."} }
+            },
+            "Istanbul": {
+                options: [ { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" } ],
+                best: "Stone",
+                warnings: [ { material: "Wood", reason: "Earthquake risk makes it less suitable." }, { material: "Glass", reason: "Not ideal for seismic activity." } ],
+                risks: { extremeHeat: { value: "30", unit: "days/yr > 30°C", severity: "Medium" }, airQuality: { value: "1.3", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "Medium", unit: "Events/yr", severity: "Medium" }, uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.28", unit: "m³/m³", note: "Moderate" }, evapotranspiration: { value: "3.2", unit: "mm/day"}, groundwaterStress: "Medium", droughtRisk: { value: "Medium", note: "Dry summers." } },
+                energy: { solarIrradiance: { value: "4.2", unit: "kWh/m²/day", potential: "Good" }, windSpeed: { value: "4.0", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "High", note: "On North Anatolian Fault." }, soilType: { value: "Clay & Limestone", note: "Variable conditions."} }
+            },
+            "London": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Glass", durability: 6, eco: 6, cost: 8, lifespan: "50 yrs", carbon: "High", availability: "8/10", resilience: 5, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "Absorbs moisture, rots in damp climates." }, { material: "Adobe", reason: "Not suitable for rainy and cold climates." } ],
+                risks: { extremeHeat: { value: "5", unit: "days/yr > 28°C", severity: "Low" }, airQuality: { value: "1.0", unit: "Aerosol Index", severity: "Low" }, floodRisk: { value: "Medium", unit: "River/Surface", severity: "Medium" }, uvIndex: { value: "6", unit: "Avg. Max", severity: "Low"} },
+                hydrology: { soilMoisture: { value: "0.35", unit: "m³/m³", note: "Moist" }, evapotranspiration: { value: "1.8", unit: "mm/day"}, groundwaterStress: "Low", droughtRisk: { value: "Low", note: "Temperate climate." } },
+                energy: { solarIrradiance: { value: "2.7", unit: "kWh/m²/day", potential: "Low" }, windSpeed: { value: "4.5", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Very low seismic risk." }, soilType: { value: "London Clay", note: "High plasticity."} }
+            },
+            "Los Angeles": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Adobe", durability: 7, eco: 9, cost: 5, lifespan: "60 yrs", carbon: "Low", availability: "6/10", resilience: 7, regulations: "✔" }, { material: "Glass", durability: 7, eco: 6, cost: 8, lifespan: "60 yrs", carbon: "High", availability: "8/10", resilience: 6, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "Fire risk in dry climate with wildfires." }, { material: "Brick", reason: "Earthquake vulnerability without reinforcement." } ],
+                risks: { extremeHeat: { value: "60", unit: "days/yr > 32°C", severity: "Medium" }, airQuality: { value: "1.7", unit: "Aerosol Index", severity: "High" }, floodRisk: { value: "Low", unit: "Flash Floods", severity: "Low" }, uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.18", unit: "m³/m³", note: "Dry" }, evapotranspiration: { value: "4.0", unit: "mm/day"}, groundwaterStress: "High", droughtRisk: { value: "High", note: "Frequent droughts." } },
+                energy: { solarIrradiance: { value: "5.5", unit: "kWh/m²/day", potential: "Excellent" }, windSpeed: { value: "3.0", unit: "m/s at 50m", potential: "Low" } },
+                geotechnical: { seismicHazard: { value: "High", note: "Near San Andreas Fault." }, soilType: { value: "Alluvium", note: "Liquefaction risk."} }
+            },
+            "New York": {
+                options: [ { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" } ],
+                best: "Steel",
+                warnings: [ { material: "Wood", reason: "Slippery, unstable in snow and ice storms." }, { material: "Adobe", reason: "Not suitable for cold winters with freeze-thaw cycles." } ],
+                risks: { extremeHeat: { value: "15", unit: "days/yr > 32°C", severity: "Medium" }, airQuality: { value: "1.2", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "Medium", unit: "Coastal/Storm", severity: "Medium" }, uvIndex: { value: "7", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.30", unit: "m³/m³", note: "Moderate" }, evapotranspiration: { value: "2.5", unit: "mm/day"}, groundwaterStress: "Low", droughtRisk: { value: "Low", note: "Humid continental." } },
+                energy: { solarIrradiance: { value: "4.0", unit: "kWh/m²/day", potential: "Good" }, windSpeed: { value: "4.9", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Minor intraplate risk." }, soilType: { value: "Manhattan Schist", note: "Excellent foundation."} }
+            },
+            "Paris": {
+                options: [ { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Glass", durability: 7, eco: 6, cost: 8, lifespan: "60 yrs", carbon: "High", availability: "8/10", resilience: 6, regulations: "✔" } ],
+                best: "Stone",
+                warnings: [ { material: "Wood", reason: "Susceptible to moisture damage in temperate climates." }, { material: "Adobe", reason: "Not suitable for urban environments with pollution." } ],
+                risks: { extremeHeat: { value: "10", unit: "days/yr > 30°C", severity: "Low" }, airQuality: { value: "1.1", unit: "Aerosol Index", severity: "Low" }, floodRisk: { value: "Low", unit: "Riverine", severity: "Low" }, uvIndex: { value: "6", unit: "Avg. Max", severity: "Low"} },
+                hydrology: { soilMoisture: { value: "0.32", unit: "m³/m³", note: "Moist" }, evapotranspiration: { value: "2.0", unit: "mm/day"}, groundwaterStress: "Low", droughtRisk: { value: "Low", note: "Oceanic climate." } },
+                energy: { solarIrradiance: { value: "3.2", unit: "kWh/m²/day", potential: "Moderate" }, windSpeed: { value: "4.1", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Very low seismic risk." }, soilType: { value: "Limestone & Marl", note: "Generally stable."} }
+            },
+            "Rome": {
+                options: [ { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Terracotta", durability: 8, eco: 8, cost: 6, lifespan: "70 yrs", carbon: "Low", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Glass", durability: 6, eco: 6, cost: 8, lifespan: "50 yrs", carbon: "High", availability: "8/10", resilience: 5, regulations: "✔" } ],
+                best: "Stone",
+                warnings: [ { material: "Wood", reason: "Not suitable for Mediterranean climate with high temperatures." }, { material: "Adobe", reason: "Limited durability in urban environments." } ],
+                risks: { extremeHeat: { value: "50", unit: "days/yr > 32°C", severity: "Medium" }, airQuality: { value: "1.2", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "Low", unit: "Events/yr", severity: "Low" }, uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.22", unit: "m³/m³", note: "Dry-Moderate" }, evapotranspiration: { value: "3.7", unit: "mm/day"}, groundwaterStress: "Medium", droughtRisk: { value: "Medium", note: "Hot, dry summers." } },
+                energy: { solarIrradiance: { value: "4.6", unit: "kWh/m²/day", potential: "Good" }, windSpeed: { value: "3.2", unit: "m/s at 50m", potential: "Low" } },
+                geotechnical: { seismicHazard: { value: "Medium", note: "Moderate regional risk." }, soilType: { value: "Volcanic Tuff & Alluvium", note: "Complex geology."} }
+            },
+            "Shanghai": {
+                options: [ { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Brick", durability: 8, eco: 7, cost: 6, lifespan: "75 yrs", carbon: "Medium", availability: "8/10", resilience: 8, regulations: "✔" }, { material: "Glass", durability: 7, eco: 6, cost: 8, lifespan: "60 yrs", carbon: "High", availability: "8/10", resilience: 6, regulations: "✔" } ],
+                best: "Concrete",
+                warnings: [ { material: "Wood", reason: "High humidity causes rot and mold issues." }, { material: "Adobe", reason: "Not suitable for high-rise construction." } ],
+                risks: { extremeHeat: { value: "70", unit: "days/yr > 32°C", severity: "Medium" }, airQuality: { value: "1.9", unit: "Aerosol Index", severity: "High" }, floodRisk: { value: "High", unit: "Coastal/Typhoon", severity: "High" }, uvIndex: { value: "8", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.42", unit: "m³/m³", note: "Moist" }, evapotranspiration: { value: "3.0", unit: "mm/day"}, groundwaterStress: "High", droughtRisk: { value: "Low", note: "Humid subtropical." } },
+                energy: { solarIrradiance: { value: "3.5", unit: "kWh/m²/day", potential: "Moderate" }, windSpeed: { value: "4.5", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "Low", note: "Low seismic risk." }, soilType: { value: "Marine Clay", note: "Soft and compressible."} }
+            },
+            "Tokyo": {
+                options: [ { material: "Steel", durability: 9, eco: 6, cost: 8, lifespan: "100 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Concrete", durability: 9, eco: 4, cost: 7, lifespan: "80 yrs", carbon: "High", availability: "9/10", resilience: 9, regulations: "✔" }, { material: "Glass", durability: 7, eco: 6, cost: 8, lifespan: "60 yrs", carbon: "High", availability: "8/10", resilience: 6, regulations: "✔" }, { material: "Stone", durability: 10, eco: 7, cost: 9, lifespan: "150 yrs", carbon: "Low", availability: "7/10", resilience: 10, regulations: "✔" } ],
+                best: "Steel",
+                warnings: [ { material: "Wood", reason: "Vulnerable to earthquakes if not properly reinforced." }, { material: "Adobe", reason: "Not earthquake-resistant for high seismic zones." } ],
+                risks: { extremeHeat: { value: "65", unit: "days/yr > 30°C", severity: "Medium" }, airQuality: { value: "1.4", unit: "Aerosol Index", severity: "Medium" }, floodRisk: { value: "High", unit: "Typhoon/Tsunami", severity: "High" }, uvIndex: { value: "9", unit: "Avg. Max", severity: "Medium"} },
+                hydrology: { soilMoisture: { value: "0.38", unit: "m³/m³", note: "Moist" }, evapotranspiration: { value: "2.8", unit: "mm/day"}, groundwaterStress: "Medium", droughtRisk: { value: "Low", note: "Humid subtropical." } },
+                energy: { solarIrradiance: { value: "3.7", unit: "kWh/m²/day", potential: "Moderate" }, windSpeed: { value: "4.8", unit: "m/s at 50m", potential: "Moderate" } },
+                geotechnical: { seismicHazard: { value: "High", note: "Major seismic activity." }, soilType: { value: "Alluvial Deposits", note: "High liquefaction risk."} }
+            }
+        };
 
       function showRecommendations() {
         const city = document.getElementById("city").value;
         const resultsDiv = document.getElementById("results");
         const buttonsDiv = document.getElementById("download-buttons");
-
+        
         if (!city) {
-          resultsDiv.innerHTML = "";
-          buttonsDiv.style.display = "none";
-          return;
+            resultsDiv.innerHTML = "";
+            buttonsDiv.style.display = "none";
+            return;
         }
-
+        
         const data = materialsDB[city];
         if (!data) {
-          resultsDiv.innerHTML = "<p>No data available for this city.</p>";
-          buttonsDiv.style.display = "none";
-          return;
+            resultsDiv.innerHTML = "<p>No data available for this city.</p>";
+            buttonsDiv.style.display = "none";
+            return;
         }
-
+        
         let optionsTable = `
             <div class="results-section">
                 <h2>Material Recommendations for ${city}</h2>
@@ -2060,9 +602,9 @@
                         <th>Resilience<br><span class="rating-label">(1-10)</span></th>
                         <th>Regulations</th>
                     </tr>`;
-
-        data.options.forEach((m) => {
-          optionsTable += `
+        
+        data.options.forEach(m => {
+            optionsTable += `
                 <tr class="material-row">
                     <td><strong>${m.material}</strong></td>
                     <td>${m.durability}/10</td>
@@ -2076,9 +618,9 @@
                 </tr>`;
         });
         optionsTable += "</table></div>";
-
+        
         let bestOption = `<div class="best-option">🏆 Best Overall Option: ${data.best}</div>`;
-
+        
         let warningsTable = `
             <div class="results-section">
                 <h3>Material Warnings</h3>
@@ -2087,17 +629,17 @@
                         <th>Material</th>
                         <th>Reason for Warning</th>
                     </tr>`;
-
+        
         if (data.warnings.length > 0) {
-          data.warnings.forEach((w) => {
-            warningsTable += `
+            data.warnings.forEach(w => {
+                warningsTable += `
                     <tr class="warning-row">
                         <td><strong>${w.material}</strong></td>
                         <td>${w.reason}</td>
                     </tr>`;
-          });
+            });
         } else {
-          warningsTable += `<tr class="warning-row"><td colspan="2">No critical warnings for this climate.</td></tr>`;
+            warningsTable += `<tr class="warning-row"><td colspan="2">No critical warnings for this climate.</td></tr>`;
         }
         warningsTable += "</table></div>";
 
@@ -2122,7 +664,7 @@
                     <div class="info-card"><div class="icon"><i class="fas fa-tint-slash"></i></div><div class="value">${data.hydrology.droughtRisk.value}</div><div class="label">Drought Risk</div><div class="note">${data.hydrology.droughtRisk.note}</div></div>
                 </div>
             </div>`;
-
+        
         let energySection = `
             <div class="results-section">
                 <h2>Renewable Energy Potential</h2>
@@ -2131,7 +673,7 @@
                     <div class="info-card"><div class="icon"><i class="fas fa-wind"></i></div><div class="value">${data.energy.windSpeed.value}</div><div class="label">${data.energy.windSpeed.unit}</div><div class="note potential-${data.energy.windSpeed.potential}">Potential: ${data.energy.windSpeed.potential}</div></div>
                 </div>
             </div>`;
-
+        
         let geoSection = `
             <div class="results-section">
                 <h2>Geotechnical Assessment</h2>
@@ -2140,39 +682,38 @@
                     <div class="info-card"><div class="icon"><i class="fas fa-globe-americas"></i></div><div class="value">${data.geotechnical.soilType.value}</div><div class="label">Predominant Soil Type</div><div class="note">${data.geotechnical.soilType.note}</div></div>
                 </div>
             </div>`;
-
+            
         let sourcesNote = `<div class="data-source-note">Engineering data inspired by NASA POWER, Giovanni, Data Rods, and Worldview resources.</div>`;
-
+        
         resultsDiv.innerHTML = `${optionsTable}${bestOption}${warningsTable}${risksSection}${hydroSection}${energySection}${geoSection}${sourcesNote}`;
         buttonsDiv.style.display = "block";
       }
 
       function downloadCSV() {
-        const city = document.getElementById("city").value;
-        if (!city) return;
-
-        const data = materialsDB[city];
-        let csv =
-          "Material,Durability (1-10),Eco-Friendliness (1-10),Cost Efficiency (1-10),Lifespan,Carbon Footprint,Availability (1-10),Climate Resilience (1-10),Regulations\n";
-
-        data.options.forEach((m) => {
-          csv += `${m.material},${m.durability},${m.eco},${m.cost},${m.lifespan},${m.carbon},${m.availability},${m.resilience},${m.regulations}\n`;
-        });
-
-        csv += `\nBest Option,${data.best}`;
-
-        if (data.warnings.length > 0) {
-          csv += `\n\nWarnings\nMaterial,Reason`;
-          data.warnings.forEach((w) => {
-            csv += `\n${w.material},"${w.reason}"`;
+          const city = document.getElementById("city").value;
+          if (!city) return;
+          
+          const data = materialsDB[city];
+          let csv = "Material,Durability (1-10),Eco-Friendliness (1-10),Cost Efficiency (1-10),Lifespan,Carbon Footprint,Availability (1-10),Climate Resilience (1-10),Regulations\n";
+          
+          data.options.forEach(m => {
+              csv += `${m.material},${m.durability},${m.eco},${m.cost},${m.lifespan},${m.carbon},${m.availability},${m.resilience},${m.regulations}\n`;
           });
-        }
-
-        const blob = new Blob([csv], { type: "text/csv" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = `${city}_material_recommendations.csv`;
-        link.click();
+          
+          csv += `\nBest Option,${data.best}`;
+          
+          if (data.warnings.length > 0) {
+              csv += `\n\nWarnings\nMaterial,Reason`;
+              data.warnings.forEach(w => {
+                  csv += `\n${w.material},"${w.reason}"`;
+              });
+          }
+          
+          const blob = new Blob([csv], { type: "text/csv" });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = `${city}_material_recommendations.csv`;
+          link.click();
       }
 
       function downloadPDF() {
@@ -2184,13 +725,13 @@
         const doc = new jsPDF();
 
         doc.setProperties({
-          title: `Engineering Recommendations for ${city}`,
-          subject: "Construction & Engineering Analysis",
-          author: "WeatherWise Engineering Hub",
+            title: `Engineering Recommendations for ${city}`,
+            subject: 'Construction & Engineering Analysis',
+            author: 'WeatherWise Engineering Hub'
         });
 
         doc.setFontSize(16);
-        doc.text(`WeatherWise Engineering Hub`, 105, 15, { align: "center" });
+        doc.text(`WeatherWise Engineering Hub`, 105, 15, { align: 'center' });
         doc.text(`Engineering Recommendations for ${city}`, 105, 25, {
           align: "center",
         });
@@ -2253,49 +794,47 @@
         finalY = doc.autoTable.previous.finalY + 10;
 
         const addSection = (title, entries) => {
-          if (finalY > 250) {
-            doc.addPage();
-            finalY = 20;
-          }
-          doc.setFontSize(12);
-          doc.setFont(undefined, "bold");
-          doc.text(title, 14, finalY);
-          finalY += 8;
-          doc.setFont(undefined, "normal");
-          doc.setFontSize(10);
-          entries.forEach((entry) => {
-            doc.text(`- ${entry}`, 14, finalY);
-            finalY += 6;
-          });
-          finalY += 4;
+            if (finalY > 250) { doc.addPage(); finalY = 20; }
+            doc.setFontSize(12);
+            doc.setFont(undefined, "bold");
+            doc.text(title, 14, finalY);
+            finalY += 8;
+            doc.setFont(undefined, "normal");
+            doc.setFontSize(10);
+            entries.forEach((entry) => {
+                doc.text(`- ${entry}`, 14, finalY);
+                finalY += 6;
+            });
+            finalY += 4;
         };
 
         addSection("Climate Risk Assessment", [
-          `Extreme Heat: ${data.risks.extremeHeat.value} ${data.risks.extremeHeat.unit} (Severity: ${data.risks.extremeHeat.severity})`,
-          `Air Quality: ${data.risks.airQuality.value} ${data.risks.airQuality.unit} (Severity: ${data.risks.airQuality.severity})`,
-          `Flood Risk: ${data.risks.floodRisk.value} ${data.risks.floodRisk.unit} (Severity: ${data.risks.floodRisk.severity})`,
-          `UV Index: ${data.risks.uvIndex.value} ${data.risks.uvIndex.unit} (Severity: ${data.risks.uvIndex.severity})`,
+            `Extreme Heat: ${data.risks.extremeHeat.value} ${data.risks.extremeHeat.unit} (Severity: ${data.risks.extremeHeat.severity})`,
+            `Air Quality: ${data.risks.airQuality.value} ${data.risks.airQuality.unit} (Severity: ${data.risks.airQuality.severity})`,
+            `Flood Risk: ${data.risks.floodRisk.value} ${data.risks.floodRisk.unit} (Severity: ${data.risks.floodRisk.severity})`,
+            `UV Index: ${data.risks.uvIndex.value} ${data.risks.uvIndex.unit} (Severity: ${data.risks.uvIndex.severity})`
         ]);
 
         addSection("Hydrological Insights", [
-          `Soil Moisture: ${data.hydrology.soilMoisture.value} ${data.hydrology.soilMoisture.unit} (${data.hydrology.soilMoisture.note})`,
-          `Evapotranspiration: ${data.hydrology.evapotranspiration.value} ${data.hydrology.evapotranspiration.unit}`,
-          `Groundwater Stress: ${data.hydrology.groundwaterStress}`,
-          `Drought Risk: ${data.hydrology.droughtRisk.value} (${data.hydrology.droughtRisk.note})`,
+            `Soil Moisture: ${data.hydrology.soilMoisture.value} ${data.hydrology.soilMoisture.unit} (${data.hydrology.soilMoisture.note})`,
+            `Evapotranspiration: ${data.hydrology.evapotranspiration.value} ${data.hydrology.evapotranspiration.unit}`,
+            `Groundwater Stress: ${data.hydrology.groundwaterStress}`,
+            `Drought Risk: ${data.hydrology.droughtRisk.value} (${data.hydrology.droughtRisk.note})`
         ]);
-
+        
         addSection("Renewable Energy Potential", [
-          `Solar Irradiance: ${data.energy.solarIrradiance.value} ${data.energy.solarIrradiance.unit} (Potential: ${data.energy.solarIrradiance.potential})`,
-          `Wind Speed: ${data.energy.windSpeed.value} ${data.energy.windSpeed.unit} (Potential: ${data.energy.windSpeed.potential})`,
+            `Solar Irradiance: ${data.energy.solarIrradiance.value} ${data.energy.solarIrradiance.unit} (Potential: ${data.energy.solarIrradiance.potential})`,
+            `Wind Speed: ${data.energy.windSpeed.value} ${data.energy.windSpeed.unit} (Potential: ${data.energy.windSpeed.potential})`
         ]);
 
         addSection("Geotechnical Assessment", [
-          `Seismic Hazard: ${data.geotechnical.seismicHazard.value} (${data.geotechnical.seismicHazard.note})`,
-          `Soil Type: ${data.geotechnical.soilType.value} (${data.geotechnical.soilType.note})`,
+            `Seismic Hazard: ${data.geotechnical.seismicHazard.value} (${data.geotechnical.seismicHazard.note})`,
+            `Soil Type: ${data.geotechnical.soilType.value} (${data.geotechnical.soilType.note})`
         ]);
 
+
         doc.save(`${city}_engineering_recommendations.pdf`);
-      }
+    }
 
       // Make functions globally available for inline event handlers
       window.showRecommendations = showRecommendations;
@@ -2304,3 +843,4 @@
     </script>
   </body>
 </html>
+
