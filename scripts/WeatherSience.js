@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fill: false,
         },
         {
-          label: "2023 Prediction",
+          label: "2025 Prediction",
           data: [4, 5, 9, 14, 19, 23, 26, 25, 21, 15, 10, 6],
           borderColor: "#e09f3e",
           borderWidth: 2,
