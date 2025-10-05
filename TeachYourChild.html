@@ -8,13 +8,691 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="Styles/TeachYourChild.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
+    <style>
+      :root {
+        /* Dark Mode */
+        --bg-primary: #2c3e50;
+        --bg-secondary: #395067;
+        --text-primary: #d8e2e9;
+        --accent-primary: #e09f3e;
+        --accent-secondary: #f4d03f;
+        --accent-tertiary: #4db6ac;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+        --card-border-color: rgba(77, 182, 172, 0.1);
+        --hero-overlay: rgba(44, 62, 80, 0.7);
+        --logo-text-gradient: linear-gradient(
+          to right,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+      }
+
+      body.light-mode {
+        /* Light Mode */
+        --bg-primary: #e0f7fa;
+        --bg-secondary: #ffffff;
+        --text-primary: #1f2937;
+        --accent-primary: #ff7043;
+        --accent-secondary: #ffa726;
+        --accent-tertiary: #009688;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --card-border-color: rgba(0, 150, 136, 0.2);
+        --hero-overlay: rgba(224, 247, 250, 0.8);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      /* Sticky Header */
+      header {
+        position: sticky;
+        top: 0;
+        background-color: var(--bg-secondary);
+        box-shadow: 0 0 15px var(--shadow-color);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        border-bottom: 1px solid var(--accent-tertiary);
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .logo img {
+          width: 3.5rem;
+          border-radius: 1.8rem;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--logo-text-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      nav a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        position: relative;
+        font-size: 1rem;
+      }
+
+      nav a:hover {
+        color: var(--accent-primary);
+      }
+
+      /* Theme Switch */
+      .theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      .theme-switch {
+        display: inline-block;
+        height: 34px;
+        position: relative;
+        width: 60px;
+      }
+      .theme-switch input {
+        display: none;
+      }
+      .slider {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.4s;
+      }
+      .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 26px;
+        left: 4px;
+        position: absolute;
+        transition: 0.4s;
+        width: 26px;
+      }
+      input:checked + .slider {
+        background-color: var(--accent-tertiary);
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .slider.round {
+        border-radius: 34px;
+      }
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-align: center;
+        padding: 4rem 2rem;
+      }
+
+      .hero-content {
+        z-index: 2;
+        max-width: 800px;
+        padding: 3rem;
+        background: var(--hero-overlay);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 15px 35px var(--shadow-color);
+        border: 1px solid var(--card-border-color);
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+
+      .hero h2 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          to right,
+          var(--accent-secondary),
+          var(--accent-primary)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-primary),
+          var(--accent-secondary)
+        );
+        color: var(--bg-secondary);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.4s;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+      }
+      body.light-mode .cta-button {
+        color: white;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px var(--shadow-color);
+      }
+
+      .secondary-button {
+        background: transparent;
+        border: 2px solid var(--accent-tertiary);
+        color: var(--accent-tertiary);
+      }
+
+      .secondary-button:hover {
+        background: var(--accent-tertiary);
+        color: var(--bg-secondary);
+      }
+
+      /* Background Effects */
+      .stars-background,
+      .weather-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -2;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      body .stars-background,
+      body.light-mode .weather-animation {
+        opacity: 1;
+      }
+
+      body .weather-animation,
+      body.light-mode .stars-background {
+        opacity: 0;
+      }
+
+      .star {
+        position: absolute;
+        background-color: var(--text-primary);
+        border-radius: 50%;
+        animation: twinkle 5s infinite ease-in-out;
+        box-shadow: 0 0 3px var(--text-primary);
+        transition: background-color 0.3s;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .cloud {
+        position: absolute;
+        background: white;
+        border-radius: 100px;
+        opacity: 0.8;
+        animation: float 120s infinite linear;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+      .cloud::before,
+      .cloud::after {
+        content: "";
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+      }
+      .cloud::before {
+        width: 60%;
+        height: 100%;
+        top: -50%;
+        left: 20%;
+      }
+      .cloud::after {
+        width: 40%;
+        height: 70%;
+        top: -40%;
+        right: 10%;
+      }
+      .cloud:nth-child(1) {
+        width: 100px;
+        height: 40px;
+        top: 20%;
+        left: 10%;
+        transform: scale(1.2);
+      }
+      .cloud:nth-child(2) {
+        width: 150px;
+        height: 60px;
+        top: 40%;
+        right: 10%;
+        transform: scale(0.9);
+      }
+      .cloud:nth-child(3) {
+        width: 120px;
+        height: 50px;
+        bottom: 30%;
+        left: 20%;
+      }
+      .cloud:nth-child(4) {
+        width: 90px;
+        height: 35px;
+        top: 15%;
+        right: 5%;
+        transform: scale(0.8);
+      }
+      .cloud:nth-child(5) {
+        width: 140px;
+        height: 55px;
+        top: 60%;
+        left: 5%;
+        transform: scale(1.1);
+      }
+      .cloud:nth-child(6) {
+        width: 110px;
+        height: 45px;
+        bottom: 25%;
+        right: 15%;
+        transform: scale(0.7);
+      }
+      .cloud:nth-child(7) {
+        width: 160px;
+        height: 65px;
+        top: 50%;
+        left: 25%;
+        transform: scale(1.3);
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateX(-150px);
+        }
+        100% {
+          transform: translateX(calc(100vw + 150px));
+        }
+      }
+
+      /* Journey Path Styles */
+      .journey-path {
+        padding: 6rem 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .journey-path::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 4px;
+        background: linear-gradient(
+          to bottom,
+          var(--accent-tertiary),
+          var(--accent-secondary)
+        );
+        z-index: 1;
+        border-radius: 2px;
+        box-shadow: 0 0 10px var(--shadow-color);
+      }
+
+      .step {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        display: none; /* Hidden by default */
+      }
+
+      .step.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+      }
+
+      .step-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .step:nth-child(even) .step-container {
+        flex-direction: row-reverse;
+      }
+
+      .step:nth-child(even) .step-content {
+        text-align: right;
+      }
+
+      .step-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--bg-secondary);
+        border: 2px solid var(--accent-tertiary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        color: var(--accent-secondary);
+        flex-shrink: 0;
+        box-shadow: 0 0 20px var(--shadow-color);
+        transition: background-color 0.3s;
+      }
+
+      .step-content {
+        background-color: var(--bg-secondary);
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 10px 30px var(--shadow-color);
+        border: 1px solid var(--card-border-color);
+        width: 100%;
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .step h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .actions-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .summary-container {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.7;
+        border-left: 3px solid var(--accent-tertiary);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+      }
+      .summary-container.visible {
+        max-height: 500px; /* Adjust as needed */
+        padding: 1.5rem;
+      }
+      .summary-container h4 {
+        color: var(--accent-secondary);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .summary-container ul {
+          list-style: none;
+          padding-left: 0;
+      }
+      .summary-container li {
+          padding-left: 1.5rem;
+          position: relative;
+          margin-bottom: 0.5rem;
+      }
+      .summary-container li::before {
+          content: '💧';
+          position: absolute;
+          left: 0;
+      }
+      .summary-container li.cold::before { content: '🧥'; }
+      .summary-container li.windy::before { content: '🌳'; }
+      .summary-container li.rainy::before { content: '☔'; }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        background-color: var(--bg-secondary);
+        padding: 3rem;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+        border: 1px solid var(--accent-tertiary);
+        box-shadow: 0 0 30px var(--shadow-color);
+        transform: scale(0.9);
+        transition: transform 0.3s, background-color 0.3s;
+        position: relative;
+      }
+
+      .modal-overlay.active .modal-content {
+        transform: scale(1);
+      }
+      .modal-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent-secondary);
+      }
+      .modal-content p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+      .quiz-options button {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--accent-tertiary);
+        background: transparent;
+        color: var(--text-primary);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1rem;
+      }
+      .quiz-options button:hover:not(.disabled) {
+        background-color: var(--accent-tertiary);
+        color: var(--bg-secondary);
+        transform: scale(1.02);
+      }
+      .quiz-options button.correct {
+        background-color: var(--accent-tertiary);
+        color: var(--bg-secondary);
+        border-color: var(--accent-tertiary);
+      }
+      .quiz-options button.incorrect {
+        background-color: #c0392b;
+        color: white;
+        border-color: #c0392b;
+      }
+      .quiz-options button.disabled {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+      .quiz-options button:hover.disabled {
+        transform: none;
+      }
+      #quiz-feedback {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        height: 2rem;
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: var(--text-primary);
+        cursor: pointer;
+        background: none;
+        border: none;
+        line-height: 1;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--bg-secondary);
+        padding: 2rem;
+        border-top: 1px solid var(--accent-tertiary);
+        text-align: center;
+        transition: background-color 0.3s;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          padding: 1rem;
+          gap: 1rem;
+        }
+        nav ul {
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .hero h2 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1.1rem;
+        }
+        .journey-path::before {
+          left: 40px;
+          transform: translateX(-50%);
+        }
+        .step {
+          padding-left: 100px;
+          margin-bottom: 2rem;
+        }
+        .step-container {
+          flex-direction: column !important;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        .step:nth-child(even) .step-content {
+          text-align: left !important;
+        }
+        .step-icon {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .step-content {
+          width: 100%;
+          border-right: none !important;
+          border-left: 5px solid var(--card-border-color) !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Backgrounds -->
@@ -32,7 +710,7 @@
     <!-- Header -->
     <header>
       <div class="logo">
-        <img src="pics/Logo.jpg" class="img" alt="ClimaQuest Logo" />
+        <img src="https://placehold.co/100x100/2c3e50/d8e2e9?text=CQ" class="img" alt="ClimaQuest Logo" />
         <h1>ClimaQuest</h1>
       </div>
       <nav>
@@ -78,7 +756,7 @@
         >
           <div class="step-container">
             <div class="step-icon">
-              <i class="fas fa-cloud-rain"></i>
+              <i class="fas fa-cloud-showers-heavy"></i>
             </div>
             <div class="step-content">
               <div class="video-container">
@@ -96,10 +774,21 @@
                 understand what causes rain and why it's so important for our
                 planet. Grasping this is key to the rest of the journey.
               </p>
-              <div class="summary-container"></div>
+              <div class="summary-container">
+                <h4>Heavy Rain</h4>
+                <p>When it rains heavily, big drops fall fast, and the streets might fill with water. It can be fun to watch, but it’s important to stay safe and dry.</p>
+                <h4>Tips for Rainy Weather:</h4>
+                <ul>
+                    <li class="rainy">Use an umbrella or raincoat if you go outside.</li>
+                    <li class="rainy">Wear waterproof shoes to keep your feet dry.</li>
+                    <li class="rainy">Don’t play in puddles or deep water — it might be dirty or slippery.</li>
+                    <li class="rainy">Stay inside if there’s thunder, lightning, or heavy rain.</li>
+                    <li class="rainy">Watch the rain from the window — sometimes you might see a rainbow after! 🌈</li>
+                </ul>
+              </div>
               <div class="actions-container">
-                <button class="cta-button ai-summary-trigger">
-                  <i class="fas fa-robot"></i> Ask AI for Summary
+                <button class="cta-button learn-more-trigger">
+                  Learn More
                 </button>
                 <button class="cta-button quiz-trigger" data-quiz-id="quiz1">
                   Take Quiz
@@ -119,7 +808,7 @@
         >
           <div class="step-container">
             <div class="step-icon">
-              <i class="fas fa-globe-americas"></i>
+                <i class="fas fa-snowflake"></i>
             </div>
             <div class="step-content">
               <div class="video-container">
@@ -131,16 +820,27 @@
                   allowfullscreen
                 ></iframe>
               </div>
-              <h3>Chapter 2: very cold weather</h3>
+              <h3>Chapter 2: Very Cold Weather</h3>
               <p>
-                It very important to learn about cold weather and ice ,to wear
+                It very important to learn about cold weather and ice, to wear
                 more clothes outside and be carefull, so just watch and take the
                 quiz...
               </p>
-              <div class="summary-container"></div>
+              <div class="summary-container">
+                <h4>Very Cold Weather</h4>
+                <p>When it’s very cold, the air feels freezing, and you might see your breath in the air! Sometimes it even snows in some places. Cold weather can make you sick if you don’t stay warm.</p>
+                <h4>Tips for Cold Weather:</h4>
+                <ul>
+                    <li class="cold">Wear warm clothes, like a jacket, scarf, gloves, and boots.</li>
+                    <li class="cold">Drink warm drinks, like milk or cocoa, to stay cozy.</li>
+                    <li class="cold">Stay inside when it’s too cold or windy.</li>
+                    <li class="cold">Keep moving a little to stay warm, but don’t stay outside too long.</li>
+                    <li class="cold">Cover your head and ears because they get cold fast.</li>
+                </ul>
+              </div>
               <div class="actions-container">
-                <button class="cta-button ai-summary-trigger">
-                  <i class="fas fa-robot"></i> Ask AI for Summary
+                <button class="cta-button learn-more-trigger">
+                  Learn More
                 </button>
                 <button class="cta-button quiz-trigger" data-quiz-id="quiz2">
                   Take Quiz
@@ -161,7 +861,7 @@
         >
           <div class="step-container">
             <div class="step-icon">
-              <i class="fas fa-rocket"></i>
+                <i class="fas fa-wind"></i>
             </div>
             <div class="step-content">
               <div class="video-container">
@@ -173,15 +873,26 @@
                   allowfullscreen
                 ></iframe>
               </div>
-              <h3>Chapter 3: windy weather</h3>
+              <h3>Chapter 3: Windy Weather</h3>
               <p>
                 Now let's know more about winds and how should we avoid it by
                 following the episode.
               </p>
-              <div class="summary-container"></div>
+              <div class="summary-container">
+                <h4>Strong Wind</h4>
+                <p>When the wind blows strongly, it can push things around — trees move, doors close suddenly, and light things like papers can fly away! Strong wind can also make it harder to walk or play outside.</p>
+                <h4>Tips for Windy Weather:</h4>
+                <ul>
+                    <li class="windy">Stay away from trees or signs that could fall.</li>
+                    <li class="windy">Stay indoors if the wind is very strong.</li>
+                    <li class="windy">Hold onto your hat or umbrella, or they might fly away!</li>
+                    <li class="windy">Don’t fly kites or play with light toys when it’s too windy — it’s not safe.</li>
+                    <li class="windy">Walk carefully, especially if things are blowing around.</li>
+                </ul>
+              </div>
               <div class="actions-container">
-                <button class="cta-button ai-summary-trigger">
-                  <i class="fas fa-robot"></i> Ask AI for Summary
+                <button class="cta-button learn-more-trigger">
+                  Learn More
                 </button>
                 <button class="cta-button quiz-trigger" data-quiz-id="quiz3">
                   Take Quiz
@@ -197,12 +908,12 @@
         <!-- Step 4 -->
         <div
           class="step"
-          id="step2"
+          id="step4"
           data-video-topic="our solar system's planets"
         >
           <div class="step-container">
             <div class="step-icon">
-              <i class="fas fa-globe-americas"></i>
+                <i class="fas fa-sun"></i>
             </div>
             <div class="step-content">
               <div class="video-container">
@@ -214,18 +925,29 @@
                   allowfullscreen
                 ></iframe>
               </div>
-              <h3>Chapter 4: Very hot weather</h3>
+              <h3>Chapter 4: Very Hot Weather</h3>
               <p>
                 Here, in Egypt it is more probably to be very hot most of the
                 year , if you want to enjoy and have fun without damage , watch
                 the video...
               </p>
-              <div class="summary-container"></div>
+              <div class="summary-container">
+                <h4>Very Hot Weather</h4>
+                <p>When the weather is very hot, the sun shines strongly, and the air feels warm everywhere. You might start to sweat or feel tired quickly. It’s important to protect your body from the heat.</p>
+                <h4>Tips for Hot Weather:</h4>
+                <ul>
+                    <li class="hot">Drink lots of water so you don’t get dehydrated.</li>
+                    <li class="hot">Avoid playing outside in the middle of the day when the sun is the strongest.</li>
+                    <li class="hot">Wear light clothes, a hat, and sunglasses if you go out.</li>
+                    <li class="hot">Stay in the shade or inside a cool room whenever you can.</li>
+                    <li class="hot">Eat light food like fruits to help your body stay cool.</li>
+                </ul>
+              </div>
               <div class="actions-container">
-                <button class="cta-button ai-summary-trigger">
-                  <i class="fas fa-robot"></i> Ask AI for Summary
+                <button class="cta-button learn-more-trigger">
+                  Learn More
                 </button>
-                <button class="cta-button quiz-trigger" data-quiz-id="quiz2">
+                <button class="cta-button quiz-trigger" data-quiz-id="quiz4">
                   Take Quiz
                 </button>
                 <button class="cta-button secondary-button pass-trigger">
@@ -271,6 +993,173 @@
       </div>
     </div>
 
-    <script src="scripts/TeachYourChild.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        // --- THEME SWITCHER LOGIC ---
+        const themeToggle = document.getElementById("checkbox");
+        const body = document.body;
+
+        const applyTheme = (theme) => {
+          if (theme === "light-mode") {
+            body.classList.add("light-mode");
+            themeToggle.checked = true;
+          } else {
+            body.classList.remove("light-mode");
+            themeToggle.checked = false;
+          }
+        };
+
+        themeToggle.addEventListener("change", function () {
+          if (this.checked) {
+            body.classList.add("light-mode");
+            localStorage.setItem("theme", "light-mode");
+          } else {
+            body.classList.remove("light-mode");
+            localStorage.setItem("theme", "dark-mode");
+          }
+        });
+
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          applyTheme(savedTheme);
+        }
+
+        // --- Starry Background Generation ---
+        const starsBackground = document.querySelector(".stars-background");
+        const numberOfStars = 150;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement("div");
+            star.className = "star";
+            const size = Math.random() * 3;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starsBackground.appendChild(star);
+        }
+
+        const allSteps = Array.from(document.querySelectorAll(".step"));
+        allSteps.forEach((step) => step.classList.remove("is-visible"));
+        if (allSteps.length > 0) {
+            allSteps[0].classList.add("is-visible");
+        }
+
+        const revealNextStep = (currentStepElement) => {
+            const currentIndex = allSteps.indexOf(currentStepElement);
+            if (currentIndex < allSteps.length - 1) {
+            const nextStep = allSteps[currentIndex + 1];
+            nextStep.classList.add("is-visible");
+            setTimeout(() => {
+                nextStep.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 300);
+            }
+        };
+
+        // --- Learn More Button Logic ---
+        document.querySelectorAll('.learn-more-trigger').forEach(button => {
+            button.addEventListener('click', () => {
+                const summaryContainer = button.closest('.step-content').querySelector('.summary-container');
+                summaryContainer.classList.toggle('visible');
+                if (summaryContainer.classList.contains('visible')) {
+                    button.textContent = 'Hide Info';
+                } else {
+                    button.textContent = 'Learn More';
+                }
+            });
+        });
+
+        // --- Quiz Data ---
+        const quizData = {
+            quiz1: { title: "Quiz: Episode 1", question: "Q1. In London, it starts raining very heavily. What should you do?", options: [ "Run in the rain with no umbrella", "Climb a light pole", "Stand under a safe shelter until it stops", "none", ], answer: "Stand under a safe shelter until it stops" },
+            quiz2: { title: "Quiz: Episode 2", question: "Q2. In Shanghai, the wind is blowing very strongly. What’s the best choice?", options: [ " Hold on to your hat and walk in the middle of the street", "Stay away from trees and big signs ", "Fly a kite in the storm", "none", ], answer: "Stay away from trees and big signs " },
+            quiz3: { title: "Quiz: Episode 3", question: "In New York, the streets are covered with ice. How should you walk?", options: [ "Run fast so you don’t slip", "Jump on the icy roads", "both a and b", "Walk slowly and carefully", ], answer: "Walk slowly and carefully" },
+            quiz4: { title: "Quiz: Episode 4", question: "In Cairo, the weather is very hot and dry. What should you remember to do?", options: [ "Wear a heavy jacket", "Stay under the sun all day", "both a and b", "Drink plenty of water", ], answer: "Drink plenty of water" },
+        };
+
+        const modalOverlay = document.querySelector(".modal-overlay");
+        const modalClose = document.querySelector(".modal-close");
+        const quizTitle = document.getElementById("quiz-title");
+        const quizQuestion = document.getElementById("quiz-question");
+        const quizOptionsContainer = document.getElementById("quiz-options");
+        const quizFeedback = document.getElementById("quiz-feedback");
+        let currentStepForQuiz = null;
+
+        const loadQuiz = (quizId, stepElement) => {
+            currentStepForQuiz = stepElement;
+            const currentQuiz = quizData[quizId];
+            if (!currentQuiz) return;
+
+            quizOptionsContainer.innerHTML = "";
+            quizFeedback.textContent = "";
+            quizTitle.textContent = currentQuiz.title;
+            quizQuestion.textContent = currentQuiz.question;
+
+            currentQuiz.options.forEach((optionText) => {
+                const button = document.createElement("button");
+                button.textContent = optionText;
+                button.addEventListener("click", () => checkAnswer(button, currentQuiz));
+                quizOptionsContainer.appendChild(button);
+            });
+        };
+
+        const checkAnswer = (selectedButton, quiz) => {
+            const isCorrect = selectedButton.textContent.trim() === quiz.answer.trim();
+            const optionButtons = quizOptionsContainer.querySelectorAll("button");
+
+            optionButtons.forEach((btn) => {
+                btn.classList.add("disabled");
+                if (btn.textContent.trim() === quiz.answer.trim()) btn.classList.add("correct");
+            });
+
+            if (isCorrect) {
+                selectedButton.classList.add("correct");
+                quizFeedback.textContent = "Correct! Moving to the next step.";
+                quizFeedback.style.color = "var(--accent-tertiary)";
+                setTimeout(() => {
+                    closeModal();
+                    revealNextStep(currentStepForQuiz);
+                }, 1500);
+            } else {
+                selectedButton.classList.add("incorrect");
+                quizFeedback.textContent = "Not quite! Try again or pass to the next step.";
+                quizFeedback.style.color = "#c0392b";
+            }
+        };
+
+        document.querySelectorAll(".quiz-trigger").forEach((button) => {
+            button.addEventListener("click", () => {
+            const quizId = button.dataset.quizId;
+            const stepElement = button.closest(".step");
+            loadQuiz(quizId, stepElement);
+            modalOverlay.classList.add("active");
+            });
+        });
+
+        document.querySelectorAll(".pass-trigger").forEach((button) => {
+            button.addEventListener("click", () => {
+            const stepElement = button.closest(".step");
+            revealNextStep(stepElement);
+            });
+        });
+
+        const closeModal = () => modalOverlay.classList.remove("active");
+        modalClose.addEventListener("click", closeModal);
+        modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetElement = document.querySelector(this.getAttribute("href"));
+            if (targetElement) {
+                targetElement.classList.add("is-visible");
+                targetElement.scrollIntoView({ behavior: "smooth" });
+            }
+            });
+        });
+        });
+    </script>
   </body>
 </html>
+
