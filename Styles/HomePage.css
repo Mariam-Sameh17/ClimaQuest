@@ -194,7 +194,7 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url("/pics/van.jpg");
+  background-image: url("pics/van.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -820,3 +820,4 @@ body.light-mode .stars-background {
     font-size: 1.1rem;
   }
 }
+
