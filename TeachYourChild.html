@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Learning Journey</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Styles/TeachYourChild.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Backgrounds -->
+    <div class="stars-background"></div>
+    <div class="weather-animation">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="pics/Logo.jpg" class="img" alt="ClimaQuest Logo" />
+        <h1>ClimaQuest</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ExploreWeather.html">Plan Your Trip</a></li>
+          <li><a href="WeatherSience.html">Weather Science</a></li>
+          <li><a href="MyWeather.html">My Weather</a></li>
+          <li><a href="EngineeringHub.html">Engineering Hub</a></li>
+          <li><a href="about.html">About</a></li>
+          <li>
+            <div class="theme-switch-wrapper">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="start">
+        <div class="hero-content">
+          <h2>Your Learning Journey</h2>
+          <p>
+            Follow the path below to explore the weather, from the traveeling
+            around the world story, Each step brings you closer to understanding
+            your weather.
+          </p>
+          <a href="#step1" class="cta-button">Begin Exploration</a>
+        </div>
+      </section>
+
+      <!-- The Journey Path -->
+      <section class="journey-path">
+        <!-- Step 1 -->
+        <div
+          class="step"
+          id="step1"
+          data-video-topic="the scale of the universe"
+        >
+          <div class="step-container">
+            <div class="step-icon">
+              <i class="fas fa-cloud-rain"></i>
+            </div>
+            <div class="step-content">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/MiVoknF-ULA"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Chapter 1: Rainy Weather</h3>
+              <p>
+                This is where it all begins. Watch this introductory video to
+                understand what causes rain and why it's so important for our
+                planet. Grasping this is key to the rest of the journey.
+              </p>
+              <div class="summary-container"></div>
+              <div class="actions-container">
+                <button class="cta-button ai-summary-trigger">
+                  <i class="fas fa-robot"></i> Ask AI for Summary
+                </button>
+                <button class="cta-button quiz-trigger" data-quiz-id="quiz1">
+                  Take Quiz
+                </button>
+                <button class="cta-button secondary-button pass-trigger">
+                  Pass <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div
+          class="step"
+          id="step2"
+          data-video-topic="our solar system's planets"
+        >
+          <div class="step-container">
+            <div class="step-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="step-content">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/FGE2yRBUXDg"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Chapter 2: very cold weather</h3>
+              <p>
+                It very important to learn about cold weather and ice ,to wear
+                more clothes outside and be carefull, so just watch and take the
+                quiz...
+              </p>
+              <div class="summary-container"></div>
+              <div class="actions-container">
+                <button class="cta-button ai-summary-trigger">
+                  <i class="fas fa-robot"></i> Ask AI for Summary
+                </button>
+                <button class="cta-button quiz-trigger" data-quiz-id="quiz2">
+                  Take Quiz
+                </button>
+                <button class="cta-button secondary-button pass-trigger">
+                  Pass <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div
+          class="step"
+          id="step3"
+          data-video-topic="deep space phenomena like nebulae, galaxies, and black holes"
+        >
+          <div class="step-container">
+            <div class="step-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="step-content">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/ncZkyoKEa-c"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Chapter 3: windy weather</h3>
+              <p>
+                Now let's know more about winds and how should we avoid it by
+                following the episode.
+              </p>
+              <div class="summary-container"></div>
+              <div class="actions-container">
+                <button class="cta-button ai-summary-trigger">
+                  <i class="fas fa-robot"></i> Ask AI for Summary
+                </button>
+                <button class="cta-button quiz-trigger" data-quiz-id="quiz3">
+                  Take Quiz
+                </button>
+                <button class="cta-button secondary-button pass-trigger">
+                  Pass <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div
+          class="step"
+          id="step2"
+          data-video-topic="our solar system's planets"
+        >
+          <div class="step-container">
+            <div class="step-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <div class="step-content">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/NxyO9-zxde4"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Chapter 4: Very hot weather</h3>
+              <p>
+                Here, in Egypt it is more probably to be very hot most of the
+                year , if you want to enjoy and have fun without damage , watch
+                the video...
+              </p>
+              <div class="summary-container"></div>
+              <div class="actions-container">
+                <button class="cta-button ai-summary-trigger">
+                  <i class="fas fa-robot"></i> Ask AI for Summary
+                </button>
+                <button class="cta-button quiz-trigger" data-quiz-id="quiz2">
+                  Take Quiz
+                </button>
+                <button class="cta-button secondary-button pass-trigger">
+                  Pass <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- End Point -->
+        <div class="step" id="end">
+          <div class="step-container">
+            <div class="step-icon">
+              <i class="fas fa-flag-checkered"></i>
+            </div>
+            <div class="step-content">
+              <h3>Congratulations!</h3>
+              <p>
+                You've reached the end of this learning path. You've built a
+                strong foundation in weather and are now ready to explore more
+                about how weather be calcukated and predicted, don't wait !
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Cosmic Learning Journey. All rights reserved.</p>
+    </footer>
+
+    <!-- Quiz Modal -->
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2 id="quiz-title">Quiz Time!</h2>
+        <p id="quiz-question">This is a sample question.</p>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div id="quiz-feedback"></div>
+      </div>
+    </div>
+
+    <script src="scripts/TeachYourChild.js"></script>
+  </body>
+</html>
